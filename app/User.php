@@ -34,9 +34,11 @@ class User extends Authenticatable
       return $this->belongsToMany('App\Product','carts','user_id','product_id');
     }
 
-    public function add_to_cart($product) {
-
-      return $this->products()->attach($product);
+    public function add_to_cart($product,$order_number) {
+      for ($i=10-$order_number; $i < 10; $i++) {
+        // code...
+      $this->products()->attach($product);
     }
+  }
 
 }

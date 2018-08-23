@@ -22,35 +22,33 @@
         <a href="#">{{$product->name}}</a>
       </h4>
       <h5>{{$product->detail}}</h5>
-      <h5>{{$product->price}}</h5>
-      <select class="form-control; col-lg-1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-      </select>
-      <div style="margin-top:10px;">
-        <form method="post" action="{{action('UserController@add_to_cart',$product)}}">
-          {{ csrf_field() }}
-        <button class="btn btn-primary">Add to Cart</button>
+      <h5>{{$product->presentPrice()}}</h5>
+      <form method="post" action="{{action('UserController@add_to_cart',$product)}}">
+
+        <select class="form-control; col-lg-1"　name="order">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+
+        <div style="margin-top:10px;">
+            {{ csrf_field() }}
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
       </form>
-      </div>
       <p class="card-text">{{$product->description}}</p>
     </div>
    </div>
 </div>
 
-<div class="col-lg-12 col-md-6">
-  <div class="card-body">
 
-    <h5>{{$product->detail}}</h5>
-    <h5>{{$product->price}}</h5>
-    <p class="card-text">{{$product->description}}</p>
-  </div>
- </div>
 
 
 @endsection
