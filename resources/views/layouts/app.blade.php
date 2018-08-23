@@ -121,6 +121,9 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('cart') }}::0</a>
+                        </li>
                     </ul>
                 </div>
             </div>
