@@ -12,3 +12,134 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+#navbar #nav-search {
+    margin-top: 0;
+    padding-top: 11px;
+    padding-right: 25px;
+}
+#nav-search {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    border-radius: 0\9;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: auto;
+    margin: 10px 0 0;
+}
+.nav-left {
+    position: relative;
+    float: left;
+    width: auto;
+    display: inline-block;
+}
+
+.nav-right {
+    position: relative;
+    float: right;
+    width: auto;
+    display: inline-block;
+}
+#navbar.nav-bluebeacon #nav-search .nav-search-field {
+    border: none;
+    border-top: 1px solid transparent;
+}
+
+#nav-search .nav-search-field {
+    position: relative;
+    height: 35px;
+    background: #fff;
+    border-top: 1px solid #bdbdbd;
+}
+
+#nav-belt .nav-fill, #navbar .nav-belt .nav-fill {
+    overflow: visible;
+}
+#nav-belt .nav-fill, #nav-belt .nav-left, #nav-belt .nav-right, #navbar .nav-belt .nav-fill, #navbar .nav-belt .nav-left, #navbar .nav-belt .nav-right {
+    height: 39px;
+}
+#navbar * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.nav-fill {
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#nav-search .nav-search-facade .nav-search-label {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+    font-size: 12px;
+    line-height: 33px;
+    margin-right: 21px;
+    margin-left: 5px;
+}
+
+#navbar.nav-bluebeacon #nav-search .nav-search-scope {
+    background-color: #f3f3f3;
+    background-image: none;
+    border-left: 1px solid #f3f3f3;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+}
+#nav-search .nav-search-scope {
+    position: relative;
+    float: left;
+    height: 35px;
+    margin: 0;
+    padding-left: 5px;
+    overflow: hidden;
+    border: 1px solid #cdcdcd;
+    border-top-color: #bdbdbd;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    border-radius: 0\9;
+    background-position: 0 -532px;
+}
+
+#nav-search .nav-search-dropdown {
+    position: absolute;
+    display: block;
+    top: -1px;
+    left: 0;
+    height: 35px;
+    width: auto;
+    font-family: arial,sans-serif;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: visible;
+    border: 0;
+    line-height: 35px;
+}
+
+#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
