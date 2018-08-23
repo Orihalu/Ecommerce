@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::post('/product/add/{product}','UserController@add_to_cart');
 
 Route::get('/home', 'ProductController@index')->name('home');
+Route::get('/products/{product}', 'ProductController@show');
