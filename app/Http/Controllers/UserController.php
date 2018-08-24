@@ -30,6 +30,6 @@ class UserController extends Controller
 
       $cart_products = Auth::user()->uniqueProduct();
       return view('carts.show')->with('cart_products', $cart_products);
-      
+
     }
 }
