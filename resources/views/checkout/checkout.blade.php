@@ -93,7 +93,7 @@
                 </div>
             </div>
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span></span> Final Payment</a>
                 </li>
             </ul>
             <br/>
@@ -103,5 +103,5 @@
 </div>
 </form>
 </div>
-
+{{dd(getTotalPayment())}}
 @endsection

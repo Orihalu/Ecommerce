@@ -35,8 +35,8 @@
     </div>
   </div>
   @endforeach
-</div>
 
+</div>
 <form method="get" action="{{action('CheckoutController@showCheckoutPage')}}">
   <button class="btn btn-success" style="float:right;">購入する</button>
 </form>
