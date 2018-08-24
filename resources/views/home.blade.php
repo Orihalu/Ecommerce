@@ -50,7 +50,7 @@
             @foreach($products as $product)
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href=" {{action('ProductController@show',$product) }}"><img class="card-img-top" src="/img/macbook.jpg" alt=""></a>
+                <a href="{{action('ProductController@show',$product) }}"><img class="card-img-top" src="/img/macbook.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">{{$product->name}}</a>

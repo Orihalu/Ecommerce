@@ -31,14 +31,33 @@ class User extends Authenticatable
 
 
     public function products() {
-      return $this->belongsToMany('App\Product','carts','user_id','product_id');
+      return $this->belongsToMany('App\Product','carts','user_id','product_id')->withPivot('user_id','product_id');
     }
 
-    public function add_to_cart($product,$order_number) {
-      for ($i=10-$order_number; $i < 10; $i++) {
+    public function addToCart($product,$order_number) {
+      
+       $max_order = 10;
+      for ($i=$max_order-$order_number; $i < $max_order; $i++) {
         // code...
       $this->products()->attach($product);
     }
   }
+
+    public function changeOrderNumber($product_id, $order_number) {
+
+      $changed_order = $this->products()->detach($product_id);
+      return $this->addToCart($product_id,$order_number);
+
+    }
+
+    public function uniqueProduct() {
+
+      foreach ($this->products as $product) {
+        $product['product_pivot_id'] = $product->pivot->product_id;
+      }
+
+      return $this->products->unique('product_pivot_id');
+      // exit;
+    }
 
 }

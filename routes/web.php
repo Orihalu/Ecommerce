@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::post('/product/add/{product}','UserController@add_to_cart');
+Route::post('/product/add/{product}','UserController@addToCart');
+Route::post('/product/change','UserController@changeOrderNumber');
 
 Route::get('/home', 'ProductController@index')->name('home');
 Route::get('/products/{product}', 'ProductController@show');
+Route::get('/cart','UserController@showCart');
