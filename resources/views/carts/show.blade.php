@@ -8,7 +8,6 @@
   <div class="col-lg-2 col-md-4 mb-4" style="margin-bottom:10px;">
     <div class="card">
       <a href="{{action('ProductController@show',$product) }}" style="margin-top:20px;"><img class="card-img-top" src="/img/macbook.jpg" alt=""></a>
-
     </div>
   </div>
   <div class="col-lg-10 col-md-6">
@@ -30,14 +29,12 @@
           <input name="product_id" value="{{$product->id}}" type="hidden"/>
           <input type="submit"/>
         </form>
-
-
         <h5>{{$product->presentPrice()}}</h5>
         <h5>金額{{$product->getSum()}}</h5>
       </div>
     </div>
   </div>
-@endforeach
+  @endforeach
 </div>
 
 
