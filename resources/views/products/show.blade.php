@@ -3,7 +3,6 @@
 
 @section('content')
 
-{{--dd($user->products())--}}
 
 <div class="row">
   <div class="col-lg-4 col-md-6 mb-4">
@@ -23,7 +22,7 @@
       </h4>
       <h5>{{$product->detail}}</h5>
       <h5>{{$product->presentPrice()}}</h5>
-      <form method="post" action="{{action('UserController@add_to_cart',$product)}}">
+      <form method="post" action="{{action('UserController@addToCart',$product)}}">
 
         <select class="form-control; col-lg-1"　name="order">
           <option>1</option>
