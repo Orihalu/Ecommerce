@@ -27,7 +27,7 @@
           {{ csrf_field() }}
           <input placeholder="注文数の変更" name="number" type="number"/>
           <input name="product_id" value="{{$product->id}}" type="hidden"/>
-          <input type="submit"/>
+          <input type="submit" value="変更"/>
         </form>
         <h5>{{$product->presentPrice()}}</h5>
         <h5>金額{{$product->getSum()}}</h5>

@@ -103,5 +103,4 @@
 </div>
 </form>
 </div>
-{{dd(getTotalPayment())}}
 @endsection
