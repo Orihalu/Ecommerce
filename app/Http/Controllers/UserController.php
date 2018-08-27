@@ -10,7 +10,6 @@ use App\Product;
 class UserController extends Controller
 {
     public function addToCart(Request $request,Product $product) {
-
       $order_number = $request->order;
       Auth::user()->addToCart($product,$order_number);
       return redirect()->back();

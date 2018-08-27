@@ -20,7 +20,7 @@ class Product extends Model
     }
 
     public function productCount() {
-      return $this->pivot->where('product_id',$this->id)->count();
+      return $this->pivot->where('product_id',$this->id)->where('user_id',Auth::id())->count();
     }
 
 

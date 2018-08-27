@@ -14,5 +14,5 @@ class CheckoutController extends Controller
       return view('checkout.checkout')->with('cart_products',$cart_products);
     }
 
-    
+
 }
