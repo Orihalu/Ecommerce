@@ -30,4 +30,14 @@ class Product extends Model
       // dd($sum);
     }
 
+
+    public function searchProduct($keyword) {
+      $query = Product::query();
+      if(!empty($keyword)) {
+        $query->where('name','like','%'.$keyword.'%');
+      }
+      $search_products = $query->latest()->paginate(10);
+      return view('home')->with('search_products',$search_products)->with('keyword',$keyword);
+    }
+
 }

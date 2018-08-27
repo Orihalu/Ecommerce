@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
   <form>
     <div class="form-row">
@@ -101,6 +100,25 @@
         </div>
     </div>
 </div>
+
+@foreach($cart_products as $product)
+  <div class="col-lg-2 col-md-4 mb-4">
+    <div class="card">
+      <a href="{{action('ProductController@show',$product) }}" style="margin-top:20px;"><img class="card-img-top" src="/img/macbook.jpg" alt=""></a>
+    </div>
+  </div>
+  <div class="col-lg-10 col-md-6">
+      <h4 class="card-title">
+        <a href="#">{{$product->name}}</a>
+      </h4>
+
+      <h5>{{$product->presentPrice()}}</h5>
+      <h5>金額{{$product->getSum()}}</h5>
+  </div>
+@endforeach
+
+<h5>合計：{{Auth::user()->getTotalSum()}}</h5>
+
 </form>
 </div>
 @endsection

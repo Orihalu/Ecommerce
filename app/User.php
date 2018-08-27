@@ -100,4 +100,13 @@ class User extends Authenticatable
       // exit;
     }
 
+    public function getTotalSum() {
+      $total_sum = 0;
+      foreach($this->products as $product) {
+        $total_sum += $product->price;
+      }
+      return money_format('$%i',$total_sum);;
+}
+
+
 }

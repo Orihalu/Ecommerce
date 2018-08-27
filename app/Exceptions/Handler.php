@@ -49,9 +49,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if($e instanceof ExclusiveLockException) {
-            return redirect()->back()->with('exclusive_lock_exception', '排他エラーです。');
-        }
+        // if($e instanceof ExclusiveLockException) {
+        //     return redirect()->back()->with('exclusive_lock_exception', '排他エラーです。');
+        // }
 
         return parent::render($request, $exception);
     }

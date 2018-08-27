@@ -1,20 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-@if (session('exclusive_lock_exception'))
-    <div class="alert alert-success" role="alert">
-        {{ session('exclusive_lock_exception') }}
-    </div>
-@elseif (session('exclusive_lock_exception'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('exclusive_lock_exception') }}
-    </div>
-@endif
-
 <div class="row">
 
-  @forelse($cart_products as $product)
+
+  @foreach($cart_products as $product)
 
   <div class="col-lg-2 col-md-4 mb-4" style="margin-bottom:10px;">
     <div class="card">
@@ -43,12 +33,9 @@
         <h5>{{$product->presentPrice()}}</h5>
         <h5>金額{{$product->getSum()}}</h5>
       </div>
-      @empty
-      <h4>Your Shopping Cart is empty.</h4>
-      <h6>Your Shopping Cart lives to serve. Give it purpose — fill it with books, CDs, DVDs, toys, electronics, and more. If you already have an account, Sign In to see your Cart. </h6>
     </div>
   </div>
-  @endforelse
+  @endforeach
 
 </div>
 <form method="get" action="{{action('CheckoutController@showCheckoutPage')}}">

@@ -24,3 +24,5 @@ Route::get('/products/{product}', 'ProductController@show');
 Route::get('/cart','UserController@showCart');
 
 Route::get('/checkout','CheckoutController@showCheckoutPage');
+
+Route::post('/home','ProductController@search');
