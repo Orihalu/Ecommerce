@@ -25,7 +25,7 @@ class ProductController extends Controller
     if(!empty($keyword)) {
       $query->where('name','like','%'.$keyword.'%');
     }
-    $products = $query->latest()->paginate(10);
+    $products = $query->latest()->get();
     return view('home')->with('products',$products)->with('keyword',$keyword);
   }
 }

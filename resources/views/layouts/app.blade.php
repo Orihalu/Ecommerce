@@ -76,7 +76,7 @@
                             </li>
                         @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ action('UserController@showCart',Auth::user()) }}">{{ __('Cart') }}::0</a>
+                            <a class="nav-link" href="{{ action('UserController@showCart',Auth::user()) }}">{{ __('Cart') }}::{{Auth::user()->products->count()}}</a>
                         </li>
                     </ul>
                 </div>
