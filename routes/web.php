@@ -22,3 +22,7 @@ Route::post('/product/change','UserController@changeOrderNumber');
 Route::get('/home', 'ProductController@index')->name('home');
 Route::get('/products/{product}', 'ProductController@show');
 Route::get('/cart','UserController@showCart');
+
+Route::get('/checkout','CheckoutController@showCheckoutPage');
+
+Route::post('/home','ProductController@search');

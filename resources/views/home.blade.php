@@ -7,7 +7,7 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Shop Name</h1>
+          <h1 class="my-4">PC Shop</h1>
           <div class="list-group">
             <a href="#" class="list-group-item">Category 1</a>
             <a href="#" class="list-group-item">Category 2</a>
@@ -18,6 +18,14 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
+
+
+          <form method="post" class="form-inline" >
+            {{ csrf_field() }}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="name" aria-label="Search"/>
+            <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+          </form>
+
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -56,7 +64,7 @@
                     <a href="#">{{$product->name}}</a>
                   </h4>
                   <h5>{{$product->detail}}</h5>
-                  <h5>{{$product->price}}</h5>
+                  <h5>{{$product->presentPrice()}}</h5>
                   <p class="card-text">{{$product->description}}</p>
                 </div>
                 <div class="card-footer">

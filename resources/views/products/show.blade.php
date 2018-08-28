@@ -2,7 +2,12 @@
 
 
 @section('content')
+@if (session('exclusive_lock_exception'))
+    <div class="alert alert-success" role="alert">
+        {{ session('exclusive_lock_exception') }}
+    </div>
 
+@endif
 
 <div class="row">
   <div class="col-lg-4 col-md-6 mb-4">
@@ -40,6 +45,7 @@
         <div style="margin-top:10px;">
             {{ csrf_field() }}
           <button class="btn btn-primary">Add to Cart</button>
+          <input type="hidden" name="updated_at" value="{{ $product->updated_at }}"/>
         </div>
       </form>
       <p class="card-text">{{$product->description}}</p>

@@ -16,6 +16,16 @@ class ProductController extends Controller
   public function show(Product $product) {
 
     return view('products.show')->with('product',$product);
-    
+
+  }
+
+  public function search(Request $request) {
+    $keyword = $request->name;
+    $query = Product::query();
+    if(!empty($keyword)) {
+      $query->where('name','like','%'.$keyword.'%');
+    }
+    $products = $query->latest()->get();
+    return view('home')->with('products',$products)->with('keyword',$keyword);
   }
 }

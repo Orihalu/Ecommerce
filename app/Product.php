@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Product extends Model
 {
@@ -19,7 +20,7 @@ class Product extends Model
     }
 
     public function productCount() {
-      return $this->pivot->where('product_id',$this->id)->count();
+      return $this->pivot->where('product_id',$this->id)->where('user_id',Auth::id())->count();
     }
 
 
@@ -27,6 +28,16 @@ class Product extends Model
       $sum = ($this->price/100)*$this->productCount();
       return money_format('$%i',$sum);
       // dd($sum);
+    }
+
+
+    public function searchProduct($keyword) {
+      $query = Product::query();
+      if(!empty($keyword)) {
+        $query->where('name','like','%'.$keyword.'%');
+      }
+      $search_products = $query->latest()->paginate(10);
+      return view('home')->with('search_products',$search_products)->with('keyword',$keyword);
     }
 
 }
