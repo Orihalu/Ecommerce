@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Log;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -34,6 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+      // Log::debug(Auth::user());
         $this->middleware('guest')->except('logout');
     }
 
@@ -42,6 +45,6 @@ class LoginController extends Controller
     }
 
     protected function guard() {
-      return \Auth::gurad('admin');
+      return \Auth::guard('admin');
     }
 }

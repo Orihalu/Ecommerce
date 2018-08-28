@@ -35,7 +35,12 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
 	Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');
 
-	// Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+	Route::get('home', 'Admin\HomeController@index')->name('admin.home');
 });
 
 // Route::get('/home', 'HomeController@index');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

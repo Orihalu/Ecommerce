@@ -70,15 +70,7 @@
                                 </div>
                             </li>
                         @endguest
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('UserController@showCart')}}">{{ __('Cart') }}</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('UserController@showCart',Auth::user()) }}">{{ __('Cart') }}::{{Auth::user()->products->count()}}</a>
-                        </li>
-                        @endguest
+                        
                     </ul>
                 </div>
             </div>
