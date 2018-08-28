@@ -43,12 +43,6 @@
                         <!-- Authentication Links -->
 
 
-                        <form method="post" class="form-inline" action="{{action('ProductController@search')}}" >
-                          {{ csrf_field() }}
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="name" aria-label="Search"/>
-                          <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-                        </form>
-
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -75,9 +69,15 @@
                                 </div>
                             </li>
                         @endguest
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('UserController@showCart')}}">{{ __('Cart') }}</a>
+                        </li>
+                        @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('UserController@showCart',Auth::user()) }}">{{ __('Cart') }}::{{Auth::user()->products->count()}}</a>
                         </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
