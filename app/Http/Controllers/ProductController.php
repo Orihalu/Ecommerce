@@ -28,4 +28,12 @@ class ProductController extends Controller
     $products = $query->latest()->get();
     return view('home')->with('products',$products)->with('keyword',$keyword);
   }
+
+  public function sortProduct(Request $request) {
+    $all_products = Product::all();
+    $products = $all_products->where('category_id', $request->id);
+    // dd($sorted_products);
+    return view('home')->with('products',$products);
+  }
+
 }

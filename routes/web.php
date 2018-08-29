@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sort','ProductController@sortProduct');
+
 Auth::routes();
 Route::post('/product/add/{product}','UserController@addToCart');
 Route::post('/product/change','UserController@changeOrderNumber');
