@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use App\Exceptions\ExclusiveLockException;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -49,10 +49,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // if($e instanceof ExclusiveLockException) {
-        //     return redirect()->back()->with('exclusive_lock_exception', '排他エラーです。');
-        // }
-
         return parent::render($request, $exception);
     }
+
+    protected function unauthenticated($request, AuthenticationException $exception) {
+      if ($request->expectsJson()) {
+        return response()->json(['error' => 'Unauthenticated.'], 401);
+      }
+      if (in_array('admin', $exception->guards())) {
+        return redirect()->guest('admin/login');
+      }
+      return redirect()->guest(route('login'));
+    }
+
 }

@@ -40,4 +40,7 @@ class Product extends Model
       return view('home')->with('search_products',$search_products)->with('keyword',$keyword);
     }
 
+
+  
+
 }

@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sort','ProductController@sortProduct');
+
 Auth::routes();
 Route::post('/product/add/{product}','UserController@addToCart');
 Route::post('/product/change','UserController@changeOrderNumber');
@@ -26,3 +28,21 @@ Route::get('/cart','UserController@showCart');
 Route::get('/checkout','CheckoutController@showCheckoutPage');
 
 Route::post('/home','ProductController@search');
+
+Route::group(['prefix' => 'admin'], function() {
+	Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+	Route::post('login', 'Admin\Auth\LoginController@login')->name('admin.login');
+	Route::get('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+
+	Route::get('register', 'Admin\Auth\RegisterController@showRegisterForm')->name('admin.register');
+	Route::post('register', 'Admin\Auth\RegisterController@register')->name('admin.register');
+
+	Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+});
+
+// Route::get('/home', 'HomeController@index');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
