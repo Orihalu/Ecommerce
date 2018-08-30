@@ -12,7 +12,7 @@ class Product extends Model
     ];
 
     public function users(){
-      return $this->belongsToMany('App\User','carts','product_id','user_id')->withPivot('user_id','product_id');
+      return $this->belongsToMany('App\User','carts','product_id','user_id')->withPivot('user_id','product_id')->withTimestamps();;
     }
 
     public function presentPrice() {
@@ -41,6 +41,6 @@ class Product extends Model
     }
 
 
-  
+
 
 }

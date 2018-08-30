@@ -32,7 +32,7 @@ class User extends \TCG\Voyager\Models\User
 
 
     public function products() {
-      return $this->belongsToMany('App\Product','carts','user_id','product_id')->withPivot('user_id','product_id');
+      return $this->belongsToMany('App\Product','carts','user_id','product_id')->withPivot('user_id','product_id')->withTimestamps();
     }
 
     public function addToCart($product,$order_number) {
