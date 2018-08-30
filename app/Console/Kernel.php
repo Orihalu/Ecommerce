@@ -4,6 +4,10 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands;
+use App\User;
+use Auth;
+use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +17,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        '\App\Console\Commands\UpdateProduct',
     ];
 
     /**
@@ -26,6 +30,31 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+         // $schedule->call(function () {
+         //   \DB::table('users')
+         //        ->where('id', 1)
+         //        ->update(['name' => str_random(10)]);
+         // })->cron('* * * * *');
+         // command('updateproduct --force')->cron('* * * * *');
+         $schedule->call(function () {
+           $now = Carbon::now();
+           $users = User::all();
+           foreach($users as $user) {
+             $products = $user->products;
+             foreach ($products as $product) {
+               $add_cart_date = $product->pivot->created_at;
+               if($now->diffInDays($add_cart_date) > 7) {
+                 $product_id = $product->id;
+                 $order_number = 0;
+                  $user->changeOrderNumber($product_id,$order_number);
+                  // \DB::table('users')
+                  //      ->where('id', 1)
+                  //      ->update(['name' => str_random(10)]);
+               }
+             }
+           }
+         })->cron('* * * * *');
+
     }
 
     /**
