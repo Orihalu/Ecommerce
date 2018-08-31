@@ -9,6 +9,8 @@
 
           <h1 class="my-4">PC Shop</h1>
           <div class="list-group">
+
+            
             <a href="{{ action('ProductController@sortProduct', ['id' => 1]) }}" class="list-group-item">Category 1</a>
 
             <a href="{{ action('ProductController@sortProduct', ['id' => 2]) }}" class="list-group-item">Category 2</a>
