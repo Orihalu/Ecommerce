@@ -10,7 +10,7 @@
           <h1 class="my-4">PC Shop</h1>
           <div class="list-group">
 
-            
+
             <a href="{{ action('ProductController@sortProduct', ['id' => 1]) }}" class="list-group-item">Category 1</a>
 
             <a href="{{ action('ProductController@sortProduct', ['id' => 2]) }}" class="list-group-item">Category 2</a>
@@ -81,9 +81,20 @@
 
         </div>
         <!-- /.col-lg-9 -->
-
       </div>
       <!-- /.row -->
+
+      <div class="container">
+          <div class="col-md-12">
+            <hr />
+          </div>
+
+          <div class="col-md-12" style="margin-bottom: 20px;">
+            <div class="text-center">
+              DEv{{ $products->links() }}
+            </div>
+          </div>
+        </div>
 
     </div>
 @endsection

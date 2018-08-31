@@ -27,13 +27,16 @@ class CsvController extends Controller
                       );
 
         $row_count = 1;
-        $list = [];
         $now = Carbon::now();
-        foreach ($file as $row) {
-          var_dump($row);
+        $list = [];
+        $max_count = count(file($uploaded_file, FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES));
 
-          //最初の列をスキップ
-          if ($row_count > 1) {
+        foreach ($file as $row) {
+
+            if($row_count > 1){
+
+            //最初の列をスキップ
+            //SJISからUTF-8に変換
             $name = mb_convert_encoding($row[0],'UTF-8','SJIS');
             $price = mb_convert_encoding($row[1],'UTF-8','SJIS');
             $detail = mb_convert_encoding($row[2],'UTF-8','SJIS');
@@ -41,7 +44,7 @@ class CsvController extends Controller
             $category_id = mb_convert_encoding($row[4],'UTF-8','SJIS');
             $stock = mb_convert_encoding($row[5],'UTF-8','SJIS');
 
-            DB::table("products")->insert([
+            $list[] = [
               "name" => $name,
               "price" => $price,
               "detail" => $detail,
@@ -50,14 +53,21 @@ class CsvController extends Controller
               "stock" => $stock,
               "created_at" => $now,
               "updated_at" => $now,
-            ]);
-           }
-          $row_count++;
+            ];
+
+                if (count($list)/100 == 1) {
+                    DB::table("products")->insert($list);
+                    $list = [];
+                }
+
+            }
+           $row_count++;
          }
+         DB::table("products")->insert($list);
          DB::commit();
 
       } catch (\Exception $e) {
-        
+
         DB::rollback();
       }
       return redirect()->back();
