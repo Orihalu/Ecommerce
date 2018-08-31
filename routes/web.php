@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('csv-imports/csv', 'CsvController@storeCsv');
+Route::post('admin/csv-imports/csv', 'CsvController@storeCsv');
 
 Route::get('/', function () {
     return view('welcome');

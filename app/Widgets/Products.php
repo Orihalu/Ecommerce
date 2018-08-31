@@ -32,7 +32,7 @@ class Products extends BaseDimmer
             'text'   => __('voyager::dimmer.post_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => 'View all Products',
-                'link' => route('voyager.posts.index'),
+                'link' => route('voyager.products.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
         ]));
