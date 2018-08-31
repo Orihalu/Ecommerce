@@ -11,13 +11,13 @@
           <div class="list-group">
 
             <p>CSVファイルを選択してください</p>
-<form role="form" method="post" action="csv-imports/csv" enctype="multipart/form-data">
-{{ csrf_field() }}
-    <input type="file" name="csv_file">
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">インポート</button>
-    </div>
-</form>
+              <form role="form" method="post" action="csv-imports/csv" enctype="multipart/form-data">
+              {{ csrf_field() }}
+                  <input type="file" name="csv_file">
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-primary" style="margin-top:10px;">インポート</button>
+                  </div>
+              </form>
             <a href="{{ action('ProductController@sortProduct', ['id' => 1]) }}" class="list-group-item">Category 1</a>
 
             <a href="{{ action('ProductController@sortProduct', ['id' => 2]) }}" class="list-group-item">Category 2</a>
